@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'contoh_button.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -9,21 +11,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: ContohButton()
+        // home: Scaffold(
+        //     appBar: AppBar(title: Text("Testing")),
+        //     body: Center(
+        //       child: TypographyDemo(),
+        //     )),
+        );
   }
 }
 
@@ -43,6 +50,40 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+}
+
+class TypographyDemo extends StatelessWidget {
+  const TypographyDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var styleItems = [
+      Image.network('https://www.kibrispdr.org/data/wallpaper-bambu-hd-16.jpg',
+          fit: BoxFit.cover),
+      Text(
+        'Hello',
+        style: TextStyle(
+          color: Color(0xffaa0000), //ARGB,
+          fontSize: 24,
+          fontFamily: 'WorkSans',
+          // fontStyle: FontStyle.italic
+        ),
+      ),
+      Container(
+          // margin: EdgeInsets.only(left: 20),
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          color: Colors.brown,
+          child: Text(
+            'Hello',
+            style: Theme.of(context)
+                .textTheme
+                .headline1
+                ?.copyWith(color: Colors.amber),
+          ))
+    ];
+
+    return ListView(children: styleItems);
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -94,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Testing',
             ),
             Text(
               '$_counter',
